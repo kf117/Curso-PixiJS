@@ -45,13 +45,28 @@ Assets.load(["clampy", "myFish", "monoculo"]).then(() =>
 	const fish: Sprite = Sprite.from("myFish");
 	const monoculo: Sprite = Sprite.from("monoculo");
 
-	monoculo.position = new Point(250,170);
-	const character: Container = new Container();
+	const fish_a: Sprite = Sprite.from("myFish");
+	const fish_b: Sprite = Sprite.from("myFish");
 
-	character.scale.set(0.5);
+	const character: Container = new Container();
 	character.addChild(fish);
 	character.addChild(monoculo);
+	monoculo.position = new Point(250,170);
+	character.scale.set(0.5);
 
+	
+	const other: Container = new Container();
+	other.addChild(fish_a);
+	fish_a.position = new Point(500,200);
+	fish_a.angle = -35;
+	fish_a.scale.x = -0.8;
+	fish_a.scale.y = 0.8;
+	other.addChild(fish_b);
+	fish_b.position = new Point(150,200);
+	fish_b.angle = -35;
+	fish_b.scale.x = 0.7;
+	fish_b.scale.y = 0.7;
 	app.stage.addChild(character);
+	app.stage.addChild(other);
 })
 
