@@ -21,15 +21,15 @@ window.addEventListener("resize", () =>
 
 	const marginHorizontal = Math.floor((window.innerWidth - gameWidth) / 2);
 	const marginVertical = Math.floor((window.innerHeight - gameHeight) / 2);
-  
-	app.renderer.resize(gameWidth, gameHeight);				//<-------------------
-	const container = app.view.parentNode as HTMLElement;   //<-------------------
 
-	container.style.marginLeft = marginHorizontal + "px";
-	container.style.marginRight = marginHorizontal + "px";
+	app.view.style!.width = gameWidth+"px";
+	app.view.style!.height = gameHeight+"px";
 
-	container.style.marginTop = marginVertical + "px";
-	container.style.marginBottom = marginVertical + "px";
+	(app.view.style as any).marginLeft = marginHorizontal + "px";
+	(app.view.style as any).marginRight = marginHorizontal + "px";
+
+	(app.view.style as any).marginTop = marginVertical + "px";
+	(app.view.style as any).marginBottom = marginVertical + "px";
 });
 
 window.dispatchEvent(new Event("resize"));
@@ -66,6 +66,8 @@ Assets.load(["clampy", "myFish", "monoculo"]).then(() =>
 	fish_b.angle = -35;
 	fish_b.scale.x = 0.7;
 	fish_b.scale.y = 0.7;
+	fish_b.tint = 0x357C2F;
+
 	app.stage.addChild(character);
 	app.stage.addChild(other);
 })
