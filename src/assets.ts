@@ -16,5 +16,12 @@ export const assets = {
 
     tabla_score:"./tablaUI/Tabla.png",
     tabla_lv_completo:"./tablaUI/NivelCompleto.png",
+
+    btn_rojo:"./tablaUI/btnRed.png",
+    btn_verde:"./tablaUI/btnGreen.png",
+    btn_naranja:"./tablaUI/btnOrange.png",
+    btn_X:"./tablaUI/btnX.png",
+
+    medalla: "./tablaUI/medalla.png",
 }
 

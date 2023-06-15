@@ -366,33 +366,62 @@ export class tablaUI_puntuacion extends Container {
     {
         super();
 
-        
         const A1: Sprite = Sprite.from("tabla_score");
+        const btn_salir: Sprite = Sprite.from("btn_X");
+        const btn_aceptar: Sprite = Sprite.from("btn_verde");
+        const medalla_1: Sprite = Sprite.from("medalla");
+        const medalla_2: Sprite = Sprite.from("medalla");
+        const medalla_3: Sprite = Sprite.from("medalla");
+        
         const lvCompleto: Sprite = Sprite.from("tabla_lv_completo");
 
         this.addChild(A1);
+        this.addChild(btn_salir);
         this.addChild(lvCompleto);
+
+        this.addChild(btn_aceptar);
+        const style = new TextStyle({
+            fontFamily: ['Courier new'],
+            fontSize: 20,
+            fontWeight: "800",
+          });
+
+          if(starts !== null && starts !== undefined)
+          switch(starts)
+          {
+              case 1: this.addChild(medalla_1);break;
+              case 2: this.addChild(medalla_1); this.addChild(medalla_2);break;
+              case 3: this.addChild(medalla_1); this.addChild(medalla_2);this.addChild(medalla_3);break;
+          }
+
+        medalla_1.y = medalla_2.y = medalla_3.y = 70;
+        medalla_1.x = 3;
+        medalla_2.x = medalla_1.x + medalla_2.width;
+        medalla_3.x =  medalla_2.x + medalla_3.width;
+        lvCompleto.y = 10;
+        btn_salir.x = this.width-20;
+        btn_salir.y =  5;
+        btn_aceptar.y = this.height-50;
+        btn_aceptar.x = (this.width/2-btn_aceptar.width/2);
+
+        const aceptar_text: Text = new Text("OK");
+        aceptar_text.style = style;
+        aceptar_text.position.x = btn_aceptar.x+20;
+        aceptar_text.position.y = btn_aceptar.y + 5;
+        this.addChild(aceptar_text);
+
+
+
         this.x= (480/2) - (64) ;
         this.y=(270/2) - (208/2);
 
-        const style = new TextStyle({
-            fontFamily: ['Courier new'],
-            fontSize: 16,
-            fontWeight: "800",
-          });
+
         const mytext: Text = new Text(texto);
         mytext.style = style;
         mytext.position.x = 10;
         this.addChild(mytext);
 
-        if(starts !== null && starts !== undefined)
-            switch(starts)
-            {
-                case 0: console.log("cero"); break;
-                case 1: console.log("uno"); break;
-                case 2: console.log("dos"); break;
-            }
-
+      
         if(puntuacion !== null && puntuacion !== undefined)
         {
             const style = new TextStyle({
@@ -403,9 +432,12 @@ export class tablaUI_puntuacion extends Container {
             const puntuacion_text: Text = new Text(puntuacion);
             puntuacion_text.style = style;
             puntuacion_text.position.x = 40;
-            puntuacion_text.position.y = 100;
+            puntuacion_text.position.y = 150;
             this.addChild(puntuacion_text);
         }
+
+
+
 
 
     }

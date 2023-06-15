@@ -18,7 +18,7 @@ export class Scene extends Container {
         this.addChild(fish);
 */
 
-        const tabla_UI: tablaUI_puntuacion = new tablaUI_puntuacion("","1250",3);
+        const tabla_UI: tablaUI_puntuacion = new tablaUI_puntuacion("","0117",2);
 
         this.addChild(tabla_UI);
 
