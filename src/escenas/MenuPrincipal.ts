@@ -1,38 +1,33 @@
 import { Application, Container } from "pixi.js";
-import { menu_principal } from "../entidades/UI/MenuPrincipal";
+import { menu_principal_UI } from "../entidades/UI/MenuPrincipal_UI";
 import { Keyboard } from "../utils/Keyboard";
 
-let btn_selected: number = 0;
+let menu: menu_principal_UI;
+
+
 export class MenuPrincipal extends Container {
     constructor(app: Application) {
         super();
-
-
-        const menu: menu_principal = new menu_principal();
+        menu = new menu_principal_UI();
         menu.x = app.screen.width / 2 - menu.width / 2;
         menu.y = app.screen.height / 2 - menu.height / 2;
         this.addChild(menu);
 
-        Keyboard.down.on("KeyL", this.onArrowUp, this);
+        Keyboard.down.on("ArrowUp", this.onArrowUp, this);
         Keyboard.down.on("ArrowDown", this.onArrowDown, this);
-
-        console.log(btn_selected);
-
-    }
-    private onArrowUp():void {
-        btn_selected--;
-        console.log(btn_selected);
-
-        if (btn_selected < 0)
-            btn_selected = 2;
+        Keyboard.down.on("Enter", this.onEnterPress, this);
     }
 
+    ///////////WTF... WHYYYY!?!?!?! D: ///////////////////////////////
+    private onArrowUp() { menu.onArrowUp(); }
+    private onArrowDown() { menu.onArrowDown(); }
 
-    private onArrowDown():void {
-        btn_selected++;
-        if (btn_selected > 2)
-            btn_selected = 0;
+    private onEnterPress(): void {
+        console.log("HACER ALGO -> opcion ", menu.getBotonSelectedId())
     }
 
-
+    public clearButtons(): void {
+        menu.clearButtons();
+    }
 }
+

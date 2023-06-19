@@ -26,7 +26,6 @@ export class Keyboard {
   }
   private static onKeyUp(e: KeyboardEvent) {
     Keyboard.up.emit(e.code);
-
     Keyboard.state.set(e.code, false);
   }
 }

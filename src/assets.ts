@@ -24,7 +24,7 @@ export const assets = {
 
     medalla: "./tablaUI/medalla.png",
 
-    menu_principal:"./menu/Menubackground.png",
+    menu_principal:"./menu/Menubackground2.png",
     menu_titulo: "./menu/Titulo.png",
     menu_iniciar: "./menu/Iniciar.png",
     menu_iniciar_s: "./menu/Iniciar_selected.png",

@@ -2,6 +2,7 @@ import { Application, Assets, } from 'pixi.js'
 import { assets } from './assets';
 import * as PIXI from 'pixi.js';
 import { MenuPrincipal } from './escenas/MenuPrincipal';
+import { Keyboard } from './utils/Keyboard';
 
 PIXI.settings.ROUND_PIXELS = true;
 PIXI.BaseTexture.defaultOptions.scaleMode = PIXI.SCALE_MODES.NEAREST;
@@ -11,7 +12,7 @@ const app = new Application({
 	view: document.getElementById("pixi-canvas") as HTMLCanvasElement,
 	resolution: window.devicePixelRatio || 1,
 	autoDensity: true,
-	backgroundColor: 0x6495ed,
+	backgroundColor: 0x252526,
 	width: 480,
 	height: 270,
 
@@ -48,6 +49,8 @@ window.dispatchEvent(new Event("resize"));
 Assets.addBundle("myAssets", assets); 
 
 
+
+Keyboard.initialize();
 ////////////////////////////////////////////////////////////////////////////
 
 Assets.loadBundle(["myAssets"]).then(() => {
