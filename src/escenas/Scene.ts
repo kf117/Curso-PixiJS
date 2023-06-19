@@ -1,6 +1,6 @@
 import { Container} from "pixi.js";
 
-import {tablaUI_puntuacion } from "../entidades/TablaUI";
+import {tablaUI_puntuacion } from "../entidades/UI/TablaUI";
 //import { Fish, Fish_Monoculo } from "../entidades/Fish";
 
 export class Scene extends Container {

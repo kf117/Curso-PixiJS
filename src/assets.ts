@@ -23,5 +23,15 @@ export const assets = {
     btn_X:"./tablaUI/btnX.png",
 
     medalla: "./tablaUI/medalla.png",
+
+    menu_principal:"./menu/Menubackground.png",
+    menu_titulo: "./menu/Titulo.png",
+    menu_iniciar: "./menu/Iniciar.png",
+    menu_iniciar_s: "./menu/Iniciar_selected.png",
+    menu_opciones: "./menu/Opciones.png",
+    menu_opciones_s: "./menu/Opciones_selected.png",
+    menu_salir: "./menu/Salir.png",
+    menu_salir_s: "./menu/Salir_selected.png",
+
 }
 

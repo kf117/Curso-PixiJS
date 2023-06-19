@@ -1,23 +1,24 @@
 import { Application, Assets, } from 'pixi.js'
 import { assets } from './assets';
-import { Scene } from './escenas/Scene';
 import * as PIXI from 'pixi.js';
+import { MenuPrincipal } from './escenas/MenuPrincipal';
 
 PIXI.settings.ROUND_PIXELS = true;
+PIXI.BaseTexture.defaultOptions.scaleMode = PIXI.SCALE_MODES.NEAREST;
 
 const app = new Application({
+	
 	view: document.getElementById("pixi-canvas") as HTMLCanvasElement,
 	resolution: window.devicePixelRatio || 1,
 	autoDensity: true,
 	backgroundColor: 0x6495ed,
 	width: 480,
 	height: 270,
-	antialias: false, // Disable antialiasing
-	clearBeforeRender:true,
-	preserveDrawingBuffer:false,
-	powerPreference:"high-performance"
+
 	
 });
+
+
 
 ////////////////////CONTROL DE TAMAÑO DE VENTANA ///////////////////////////
 window.addEventListener("resize", () => {
@@ -50,7 +51,8 @@ Assets.addBundle("myAssets", assets);
 ////////////////////////////////////////////////////////////////////////////
 
 Assets.loadBundle(["myAssets"]).then(() => {
-	const myScene = new Scene();
-	app.stage.addChild(myScene);
+	
+	const MenuPr = new MenuPrincipal(app);
+	app.stage.addChild(MenuPr);
 })
 
