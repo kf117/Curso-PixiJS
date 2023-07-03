@@ -33,5 +33,15 @@ export const assets = {
     menu_salir: "./menu/Salir.png",
     menu_salir_s: "./menu/Salir_selected.png",
 
+    guy_running1: "./guy/running/running1.png",
+    guy_running2: "./guy/running/running2.png",
+    guy_running3: "./guy/running/running3.png",
+    guy_running4: "./guy/running/running4.png",
+    guy_running5: "./guy/running/running5.png",
+    guy_running6: "./guy/running/running6.png",
+    guy_running7: "./guy/running/running7.png",
+    guy_running8: "./guy/running/running8.png",
+    guy_running9: "./guy/running/running9.png",
+
 }
 

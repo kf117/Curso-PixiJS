@@ -1,8 +1,9 @@
 import { Application, Assets, } from 'pixi.js'
 import { assets } from './assets';
 import * as PIXI from 'pixi.js';
-import { MenuPrincipal } from './escenas/MenuPrincipal';
+//import { MenuPrincipal } from './escenas/MenuPrincipal';
 import { Keyboard } from './utils/Keyboard';
+import { TickerScene } from './escenas/TickerScene';
 
 PIXI.settings.ROUND_PIXELS = true;
 PIXI.BaseTexture.defaultOptions.scaleMode = PIXI.SCALE_MODES.NEAREST;
@@ -12,12 +13,15 @@ const app = new Application({
 	view: document.getElementById("pixi-canvas") as HTMLCanvasElement,
 	resolution: window.devicePixelRatio || 1,
 	autoDensity: true,
-	backgroundColor: 0x252526,
-	width: 480,
-	height: 270,
+	//backgroundColor: 0x252526,
+	backgroundColor: 0x44939b,
+	width: 480*2,
+	height: 270*2,
 
 	
 });
+
+(globalThis as any).__PIXI_APP__ = app; //app es su instancia de Application
 
 
 
@@ -55,7 +59,11 @@ Keyboard.initialize();
 
 Assets.loadBundle(["myAssets"]).then(() => {
 	
-	const MenuPr = new MenuPrincipal(app);
-	app.stage.addChild(MenuPr);
+	//const MenuPr = new MenuPrincipal(app);
+	//app.stage.addChild(MenuPr);
+	const tickerScn = new TickerScene(app);
+	app.stage.addChild(tickerScn);
+	PIXI.Ticker.shared.add(function(deltaFrame){
+		tickerScn.update(PIXI.Ticker.shared.deltaMS, deltaFrame)
+	})
 })
-
